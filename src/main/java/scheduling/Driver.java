@@ -10,8 +10,11 @@ import scheduling.pojo.Schedule;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Driver to start execution of algorithm
@@ -144,7 +147,7 @@ public class Driver {
         int generation = 0;
         Algorithm algorithm = new Algorithm(data);
 
-        while (population.getSchedules().get(0).getFitness() < 1) {
+        while (population.getSchedules().get(0).getFitness() < .5) {
             population = algorithm.evolve(population).sortByFitness();
 
             Schedule best = population.getSchedules().get(0);
@@ -164,7 +167,7 @@ public class Driver {
 
             log.info("Date\t\t|\tTeam1\t\t\t|\tTeam2\t\t\t|\tLocation");
             for (int i = 0; i < 120; i++)
-                System.out.print("=");
+                System.out.print("*");
             System.out.println();
 
             for (Match f : best.getMatchList()) {

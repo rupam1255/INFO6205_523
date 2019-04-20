@@ -6,6 +6,8 @@ import scheduling.pojo.Schedule;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 /**
  * This class executes various process during evolution such as evolve, crossover and mutation
@@ -59,8 +61,6 @@ class Algorithm {
         while (newPopulation.size() < pop.size()) {
             Schedule s1 = parentSelection(pop);
             Schedule s2 = parentSelection(pop);
-//            Schedule newSchedule = crossover(s1, s2);
-//            newPopulation.addSchedule(newSchedule);
             List<Schedule> children = crossover(s1, s2);
             newPopulation.getSchedules().addAll(children);
         }
@@ -72,7 +72,7 @@ class Algorithm {
     }
 
     /**
-     * This function performs crossover operation. In this case, we have implemented "Sexual Reproduction".
+     * This function performs crossover operation.
      *
      * @param s1 The first parent solution set
      * @param s2 The second parent solution set
