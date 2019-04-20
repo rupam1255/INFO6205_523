@@ -66,7 +66,7 @@ class Algorithm {
         }
         for (Schedule s : newPopulation.getSchedules()) {
             mutation(s);
-            s.sortFixturesByDate();
+            s.sortMatchesByDate();
         }
         return newPopulation;
     }

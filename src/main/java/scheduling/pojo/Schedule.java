@@ -37,7 +37,7 @@ public class Schedule {
     private HashMap<Location, Integer> matchesInLocation;
 
     /**
-     * This stores the list of all fixtures in this schedule
+     * This stores the list of all matches in this schedule
      */
     private ArrayList<Match> matchList;
 
@@ -96,9 +96,9 @@ public class Schedule {
             matchesInLocation.put(location, 0);
         }
 
-        int totalFixtures = data.getTeamList().size() * (data.getTeamList().size() - 1);
+        int totalMatches = data.getTeamList().size() * (data.getTeamList().size() - 1);
 
-        for (int i = 0; i < totalFixtures; i++) {
+        for (int i = 0; i < totalMatches; i++) {
             Team homeTeam = data.getTeamList().get((int) (data.getTeamList().size() * Math.random()));
             Team opponent;
             while ((opponent = data.getTeamList().get((int) (data.getTeamList().size() * Math.random()))).equals(homeTeam));
@@ -107,13 +107,13 @@ public class Schedule {
             matchList.add(new Match(d, homeTeam, opponent, homeTeam.getHomeGround()));
         }
 
-        sortFixturesByDate();
+        sortMatchesByDate();
     }
 
     /**
-     * This function sorts the fixtures by the match's date
+     * This function sorts the matches by the match's date
      */
-    public void sortFixturesByDate() {
+    public void sortMatchesByDate() {
         matchList.sort((f1, f2) -> {
             if (f1.getDate().after(f2.getDate()))
                 return 1;
@@ -127,7 +127,7 @@ public class Schedule {
     /**
      * Getter method for {@code matchList}
      *
-     * @return List of all fixtures in this schedule
+     * @return List of all matches in this schedule
      */
     public ArrayList<Match> getMatchList() {
         return matchList;
@@ -171,9 +171,9 @@ public class Schedule {
     }
 
     /**
-     * This method gives the total number of fixtures in this schedule
+     * This method gives the total number of matches in this schedule
      *
-     * @return size of the fixtures list
+     * @return size of the matches list
      */
     public int size() {
         return matchList.size();

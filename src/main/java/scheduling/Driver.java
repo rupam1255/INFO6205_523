@@ -162,7 +162,7 @@ public class Driver {
 
             log.info("\n\nBest Schedule:\n");
 
-            log.info("Date\t\t|\tHome Team\t\t\t|\tAway Team\t\t\t|\tLocation");
+            log.info("Date\t\t|\tTeam1\t\t\t|\tTeam2\t\t\t|\tLocation");
             for (int i = 0; i < 120; i++)
                 System.out.print("=");
             System.out.println();

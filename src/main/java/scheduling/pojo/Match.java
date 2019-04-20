@@ -13,7 +13,7 @@ import java.util.Date;
 public class Match {
 
     /**
-     * Member variable representing the details of a match fixture
+     * Member variable representing the details of a match
      */
     private Date date;
     private Team team1;
@@ -21,9 +21,9 @@ public class Match {
     private Location location;
 
     /**
-     * Creates an instance of a fixture with values passed
+     * Creates an instance of a match with values passed
      *
-     * @param date     Date of the match fixture
+     * @param date     Date of the match
      * @param team1 The home team playing in the match
      * @param team2 The another team playing in the match
      * @param location The location of the match
